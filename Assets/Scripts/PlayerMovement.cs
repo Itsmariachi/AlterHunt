@@ -1,13 +1,18 @@
-// Some stupid rigidbody based movement by Dani
+// Some stupid rigidbody based movement by US
 
 using System;
 using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour {
 
     //Assingables
     public Transform playerCam;
     public Transform orientation;
+
+    public GameObject DeathScreen;
     
     //Other
     private Rigidbody rb;
@@ -64,6 +69,15 @@ public class PlayerMovement : MonoBehaviour {
     private void Update() {
         MyInput();
         Look();
+        
+        if(DeathScreen != true){
+            maxSpeed = 0;
+            moveSpeed = 0;
+        }
+        else{
+            maxSpeed = 20;
+            moveSpeed = 4500;
+        }
     }
 
     /// <summary>
